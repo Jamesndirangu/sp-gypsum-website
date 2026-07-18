@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-orange: #ff6600;
+            --dark: #333;
+            --light: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: white;
+        }
+
+        /* NAV */
+        nav {
+            background: var(--primary-orange);
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                margin: 0 15px;
+                font-weight: bold;
+            }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 30px;
+        }
+
+            .header h1 {
+                color: var(--dark);
+            }
+
+            .header p {
+                color: var(--primary-orange);
+            }
+
+        /* CONTAINER */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        /* CONTACT CARDS */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+            .card i {
+                font-size: 30px;
+                color: var(--primary-orange);
+                margin-bottom: 10px;
+            }
+
+        /* FORM */
+        form {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+            form input, form textarea {
+                width: 100%;
+                padding: 12px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+            }
+
+            form button {
+                width: 100%;
+                padding: 12px;
+                background: var(--primary-orange);
+                color: white;
+                border: none;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        /* BUTTONS */
+        .btns {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        .email {
+            background: var(--primary-orange);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            background: var(--primary-orange);
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="education.html">Education</a>
+        <a href="school">Experience</a>
+        <a href="contact.html">Contacts</a>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Contact Me</h1>
+        <p>Get in touch for training, projects or consultation</p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="container">
+
+        <!-- CONTACT INFO -->
+        <div class="contact-info">
+
+            <div class="card">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <p>0705199669</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>spgypsum@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Location</h3>
+                <p>Nakuru, Kenya</p>
+            </div>
+
+        </div>
+
+        <!-- QUICK BUTTONS -->
+        <div class="btns">
+            <a href="https://wa.me/254705199669" class="btn whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+
+            <a href="mailto:spgypsum@gmail.com" class="btn email">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+
+        <!-- FORM -->
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>spgypsum</p>
+        <p>&copy; 2026</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="office.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #ff6600;
+            --white: #ffffff;
+            --dark-grey: #333;
+            --light-grey: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-grey);
+            line-height: 1.6;
+        }
+
+        /* Fixed Sidebar Socials */
+        .social-sidebar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            background: var(--primary-orange);
+            padding: 10px;
+            border-radius: 0 10px 10px 0;
+            z-index: 1000;
+        }
+
+            .social-sidebar a {
+                color: white;
+                font-size: 20px;
+                margin: 15px 5px;
+                transition: 0.3s;
+            }
+
+                .social-sidebar a:hover {
+                    transform: scale(1.2);
+                }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('h6.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        nav {
+            background: var(--white);
+            width: 100%;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+            nav a {
+                color: var(--dark-grey);
+                text-decoration: none;
+                margin: 0 20px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+                nav a:hover {
+                    color: var(--primary-orange);
+                }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            color: var(--primary-orange);
+            font-weight: bold;
+        }
+
+        /* Animated Transition Text */
+        .tech-transition {
+            background: var(--primary-orange);
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+            .tech-transition p {
+                display: inline-block;
+                padding-left: 100%;
+                animation: marquee 50s linear infinite;
+                font-weight: 500;
+            }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .btn-group {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-email {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: translateY(-3px);
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            border: 2px solid var(--light-grey);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            background: #fff;
+        }
+
+            .gallery-item img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+
+        .caption {
+            padding: 15px;
+            font-weight: bold;
+            color: var(--primary-orange);
+        }
+
+        /* Direct Message Form */
+        .contact-form {
+            background: var(--dark-grey);
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+            .contact-form input, .contact-form textarea {
+                width: 100%;
+                padding: 12px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .contact-form button {
+                background: var(--primary-orange);
+                color: white;
+                border: none;
+                padding: 15px 30px;
+                cursor: pointer;
+                font-weight: bold;
+                width: 100%;
+            }
+
+        footer {
+            background: var(--primary-orange);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .social-sidebar {
+                display: none;
+            }
+            /* Optional: Hide sidebar on mobile */
+        }
+
+        /* Center Container */
+        .button-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+        /* Premium Black Gradient Button */
+        .terms-btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 18px 42px;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 1px;
+            border-radius: 60px;
+            background: linear-gradient(135deg,#000000,#1f1f1f,#3a3a3a);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35), 0 5px 12px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+            .terms-btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -120%;
+                width: 60%;
+                height: 100%;
+                background: rgba(255,255,255,0.15);
+                transform: skewX(-25deg);
+                transition: 0.8s;
+            }
+        terms-btn:hover::before {
+            left: 150%;
+        }
+
+        .terms-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.45), 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .arrow {
+            display: inline-block;
+            margin-left: 10px;
+            transition: 0.3s ease;
+        }
+
+        .terms-btn:hover .arrow {
+            transform: translateX(6px);
+        }
+        /* Center Button */
+        .button-container {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        /* Pre-Site Visit Button */
+        .previsit-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 1px;
+            border-radius: 60px;
+            background: linear-gradient(135deg,#0f172a,#1e293b,#334155);
+            box-shadow: 0 10px 25px rgba(15,23,42,0.35), 0 5px 15px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+            /* Shine Effect */
+            .previsit-btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -120%;
+                width: 50%;
+                height: 100%;
+                background: rgba(255,255,255,0.15);
+                transform: skewX(-25deg);
+                transition: 0.8s;
+            }
+
+            .previsit-btn:hover::before {
+                left: 150%;
+            }
+
+            .previsit-btn:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 18px 35px rgba(15,23,42,0.45), 0 10px 20px rgba(0,0,0,0.2);
+            }
+
+        /* Arrow Animation */
+        .arrow {
+            display: inline-block;
+            margin-left: 10px;
+            transition: 0.3s ease;
+        }
+
+        .previsit-btn:hover .arrow {
+            transform: translateX(8px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="social-sidebar">
+        <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <header id="home">
+        <div class="hero-text">
+            <h1>sp gypsum</h1>
+            <p><i>"Transforming your space to elegance,comfortable and attractive"</p></i>
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">experience</a>
+        <a href="contact.html">Contacts</a>
+    </nav>
+    <div class="tech-transition">
+        <p><i>
+    Carpentry • Woodworking • Modern Roofing • Interior Design • Custom Furniture • Coffee Tables • Dining Tables • Bed Fabrication & Fitting • Kitchen Cabinets • Wardrobe Design & Installation • Door & Lock Fitting • Pallet Flooring • T&G Ceilings • Gypsum Designs • Decorative Patterns & Flowers • PVC Installation • Wall Units • DIY Décor & Repairs • Wallpaper & Wall Effects • Entertainment Unit Design • Event Decorations & Consultation • Partitioning • Wall-to-Wall Carpeting • Backdrop Décor • Marble Table Fabrication • Seat & Furniture Asset Creation
+</i></p>
+    </div>
+
+    <div class="container intro-section">
+        <h2>About Me</h2>
+        <hr style="width: 50px; margin: 20px auto; border: 2px solid var(--primary-orange);">
+        <p>
+            Welcome to my portfolio website! I am sp Gypsum but officially my name is peter kimani, a dedicated gypsum and woodwork professional with
+            vast years of ecxperience and skills in this sector.ready to serve you achieve your dream and transform your space to make you feel comfortable
+        </p>
+        <p style="margin-top: 20px;">
+            With a rich background in technical education, I have successfully shared my expertise at:<br /><hr />
+            <strong><i>Nakuru cdf officess</i></strong>,
+            <strong><i>peters barbershop</i></strong>,
+            <strong><i>sp gypsum company</i></strong>,
+            and
+            <strong>modern furniture pacific among many more....</strong>.
+        </p><hr />
+
+        <div class="btn-group">
+            <a href="https://wa.me/254705199669" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            <a href="mailto:spgypsum@gmail.com" class="btn btn-email"><i class="fas fa-envelope"></i> Send Email</a>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="terms.html" class="terms-btn">
+            Terms & Conditions <span class="arrow">→</span>
+        </a>
+    </div>
+    <div class="button-container">
+        <a href="previsit.html" class="previsit-btn">
+            Pre-Site Visit <span class="arrow">→</span>
+        </a>
+    </div>
+
+    <div class="container">
+        <h2 style="text-align:center">Work & project Highlight</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="p1.jpeg" alt="a project in progress">
+                <div class="caption">Client project in progress progress</div>
+            </div>
+            <div class="gallery-item">
+                <img src="p2.jpeg" alt="a project in progress">
+                <div class="caption">Client project on progress</div>
+            </div>
+            <div class="gallery-item">
+                <img src="p3.jpeg" alt="a project on progress">
+                <div class="caption">Client project on progress</div>
+            </div>
+            <div class="gallery-item">
+                <img src="p4.jpeg" alt="Ceiling installation">
+                <div class="caption">gypsum ceilling</div>
+            </div>
+            <div class="gallery-item">
+                <img src="p5.jpeg" alt="GYPSUM">
+                <div class="caption">Client project on progress</div>
+            </div>
+            <div class="gallery-item">
+                <img src="h2.jpeg" alt="Completed project">
+                <div class="caption">Completed project</div>
+            </div>
+            <div class="gallery-item">
+                <img src="h4.jpeg" alt="double decker bed">
+                <div class="caption">Completed double decker bed</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="h5.jpeg" alt="tv mounted">
+                <div class="caption">Tv unit mounted on wall</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="h1.jpeg" alt="gypsum">
+                <div class="caption">completed gypsum ceiling</div>
+            </div>
+            <div class="gallery-item">
+                <img src="h6.jpeg" alt="barber">
+                <div class="caption">complete barber shop setup and furnishing</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="h7.jpeg" alt="DIY">
+                <div class="caption">Elegant wall light</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <div class="contact-form">
+            <h3 style="text-align: center;">clients Direct Message</h3>
+            <p style="text-align: center; margin-bottom: 20px;">Clients can send a direct message by filling the form below detailing their project.</p>
+            <form action="#">
+                <input type="text" placeholder="clients Name" required>
+                <input type="email" placeholder="Official Email" required>
+                <textarea rows="5" placeholder="project description..."></textarea>
+                <button type="submit">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>SP GYPSUM</strong> |Transforming your space to elegance,comfortable and attractive</p>
+        <p>&copy; 2026 All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
