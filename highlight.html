@@ -1,537 +1,2015 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doors & Lock Fittings </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="office.png">
+
+    <title>SP Interior | Home</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
+
+        /* =========================================
+           ROOT VARIABLES
+        ========================================= */
+
         :root {
-            --orange-primary: #ff5500;
-            --orange-gradient: linear-gradient(135deg, #ff6b00 0%, #ff3b00 100%);
-            --orange-light: #fff3ec;
-            --orange-subtle: #ffe6d5;
+
+            --primary-orange: #ff6600;
             --white: #ffffff;
-            --text-dark: #222222;
-            --text-muted: #666666;
-            --card-shadow: 0 10px 30px rgba(255, 85, 0, 0.08);
-            --card-hover-shadow: 0 15px 35px rgba(255, 85, 0, 0.2);
+            --dark-grey: #333333;
+            --light-grey: #f4f4f4;
+            --black: #000000;
+
         }
 
+
+        /* =========================================
+           GENERAL RESET
+        ========================================= */
+
         * {
+
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+            font-family:
+                'Segoe UI',
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+
         }
+
 
         body {
-            background-color: var(--orange-light);
-            color: var(--text-dark);
+
+            background-color: var(--white);
+
+            color: var(--dark-grey);
+
             line-height: 1.6;
+
+            overflow-x: hidden;
+
         }
 
-        /* Top Header Navigation */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 2px 20px rgba(255, 85, 0, 0.1);
-            border-bottom: 2px solid var(--orange-primary);
-        }
 
-        .top-navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 25px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        /* =========================================
+           SOCIAL MEDIA SIDEBAR
+        ========================================= */
 
-        .brand-logo {
-            color: var(--orange-primary);
-            font-size: 1.6rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .social-sidebar {
 
-        .brand-logo span {
-            background: var(--orange-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .main-services-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            list-style: none;
-        }
-
-        .main-services-nav a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 8px 16px;
-            border-radius: 30px;
-            background: var(--white);
-            border: 1px solid var(--orange-subtle);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .main-services-nav a:hover,
-        .main-services-nav a.active {
-            background: var(--orange-gradient);
-            color: var(--white);
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 85, 0, 0.3);
-        }
-
-        /* Hamburger Drawer Navigation */
-        .hamburger-btn {
-            font-size: 24px;
-            color: var(--orange-primary);
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 8px;
-            background: var(--orange-light);
-            transition: all 0.3s ease;
-        }
-
-        .hamburger-btn:hover {
-            background: var(--orange-primary);
-            color: var(--white);
-        }
-
-        .hamburger-menu {
-            display: none;
             position: fixed;
-            top: 75px;
-            right: 25px;
-            width: 250px;
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            border: 1px solid var(--orange-subtle);
-            z-index: 1000;
-        }
 
-        .hamburger-menu.show {
-            display: block;
-            animation: slideDown 0.3s ease-out forwards;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hamburger-menu a {
-            display: block;
-            padding: 16px 24px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--orange-light);
-            transition: all 0.2s ease;
-        }
-
-        .hamburger-menu a:hover {
-            background: var(--orange-gradient);
-            color: var(--white);
-            padding-left: 30px;
-        }
-
-        /* Hero Banner */
-        .hero {
-            background: var(--orange-gradient);
-            color: var(--white);
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
             left: 0;
-            right: 0;
-            height: 100px;
-            background: var(--orange-light);
-            transform: skewY(-2deg);
-        }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 900;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-        }
+            top: 50%;
 
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin: 0 auto;
-            opacity: 0.95;
-            font-weight: 500;
-        }
+            transform: translateY(-50%);
 
-        /* Gallery Grid */
-        .container {
-            max-width: 1300px;
-            margin: 40px auto 80px auto;
-            padding: 0 25px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            color: var(--text-dark);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .section-title span {
-            color: var(--orange-primary);
-        }
-
-        .divider {
-            width: 80px;
-            height: 5px;
-            background: var(--orange-gradient);
-            margin: 15px auto 0 auto;
-            border-radius: 10px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--orange-subtle);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
+
             flex-direction: column;
+
+            background: var(--primary-orange);
+
+            padding: 8px;
+
+            border-radius:
+                0 10px 10px 0;
+
+            z-index: 2000;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.2);
+
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--card-hover-shadow);
-            border-color: var(--orange-primary);
+
+        .social-sidebar a {
+
+            color: white;
+
+            font-size: 20px;
+
+            margin: 12px 5px;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+
+            text-align: center;
+
         }
 
-        .card-img-wrapper {
+
+        .social-sidebar a:hover {
+
+            transform: scale(1.25);
+
+            color: #000000;
+
+        }
+
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+
+        header {
+
             position: relative;
-            overflow: hidden;
-            height: 250px;
+
+            background:
+
+                linear-gradient(
+                    rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.6)
+                ),
+
+                url('h6.jpeg');
+
+            background-size: cover;
+
+            background-position: center;
+
+            min-height: 80vh;
+
+            color: white;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
         }
 
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
 
-        .card:hover img {
-            transform: scale(1.08);
-        }
+        .hero-text {
 
-        .card-body {
             padding: 20px;
-            text-align: center;
-            background: var(--white);
-            border-top: 2px solid var(--orange-light);
+
         }
 
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--orange-primary);
-            margin-bottom: 5px;
-        }
 
-        .card-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .hero-text h1 {
+
+            font-size: 3.5rem;
+
+            margin-bottom: 10px;
+
             text-transform: uppercase;
-            letter-spacing: 1px;
+
+            letter-spacing: 2px;
+
         }
 
-        /* Footer */
-        footer {
-            background: var(--orange-gradient);
-            color: var(--white);
-            text-align: center;
-            padding: 40px 20px;
-            box-shadow: 0 -10px 30px rgba(255, 85, 0, 0.15);
+
+        .hero-text p {
+
+            font-size: 1.5rem;
+
+            color: var(--primary-orange);
+
+            font-weight: bold;
+
         }
+
+
+        /* =========================================
+           HAMBURGER BUTTON
+        ========================================= */
+
+        .hamburger {
+
+            position: absolute;
+
+            top: 25px;
+
+            right: 25px;
+
+            font-size: 32px;
+
+            color: white;
+
+            cursor: pointer;
+
+            z-index: 3000;
+
+            transition: 0.3s;
+
+        }
+
+
+        .hamburger:hover {
+
+            color: var(--primary-orange);
+
+        }
+
+
+        /* =========================================
+           HAMBURGER MENU
+        ========================================= */
+
+        .nav-menu {
+
+            display: none;
+
+            position: absolute;
+
+            top: 75px;
+
+            right: 25px;
+
+            width: 240px;
+
+            background: white;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.25);
+
+            z-index: 2500;
+
+        }
+
+
+        .nav-menu a {
+
+            display: block;
+
+            padding: 16px 20px;
+
+            color: #333;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            border-bottom:
+                1px solid #eeeeee;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-menu a:hover {
+
+            background:
+                var(--primary-orange);
+
+            color: white;
+
+        }
+
+
+        .nav-menu.show {
+
+            display: block;
+
+        }
+
+
+        /* =========================================
+           SERVICES / MARQUEE
+        ========================================= */
+
+        .tech-transition {
+
+            background:
+                var(--primary-orange);
+
+            color: white;
+
+            padding: 10px 0;
+
+            overflow: hidden;
+
+            white-space: nowrap;
+
+        }
+
+
+        .tech-transition p {
+
+            display: inline-block;
+
+            padding-left: 100%;
+
+            animation:
+                marquee 50s linear infinite;
+
+            font-weight: 500;
+
+        }
+
+
+        @keyframes marquee {
+
+            0% {
+
+                transform:
+                    translateX(0);
+
+            }
+
+            100% {
+
+                transform:
+                    translateX(-100%);
+
+            }
+
+        }
+
+
+        /* =========================================
+           MAIN CONTAINER
+        ========================================= */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: 50px auto;
+
+            padding:
+                0 20px;
+
+        }
+
+
+        .intro-section {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+
+        }
+
+
+        .intro-section h2 {
+
+            font-size: 2rem;
+
+        }
+
+
+        /* =========================================
+           CONTACT BUTTONS
+        ========================================= */
+
+        .btn-group {
+
+            margin-top: 30px;
+
+        }
+
+
+        .btn {
+
+            display: inline-block;
+
+            padding:
+                12px 25px;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+
+            margin: 10px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-whatsapp {
+
+            background:
+                #25D366;
+
+            color: white;
+
+        }
+
+
+        .btn-email {
+
+            background:
+                var(--primary-orange);
+
+            color: white;
+
+        }
+
+
+        .btn:hover {
+
+            opacity: 0.85;
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        /* =========================================
+           PREMIUM BUTTON CONTAINER
+        ========================================= */
+
+        .button-container {
+
+            text-align: center;
+
+            margin: 45px 0;
+
+            padding:
+                0 15px;
+
+        }
+
+
+        /* =========================================
+           PREMIUM BUTTONS
+        ========================================= */
+
+        .terms-btn,
+        .previsit-btn,
+        .projects-btn {
+
+            display: inline-block;
+
+            position: relative;
+
+            overflow: hidden;
+
+            text-decoration: none;
+
+            padding:
+                18px 42px;
+
+            color: #ffffff;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            font-style: italic;
+
+            letter-spacing: 1px;
+
+            border-radius: 60px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #000000,
+                    #1f1f1f,
+                    #3a3a3a
+                );
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.35),
+
+                0 5px 12px
+                rgba(0, 0, 0, 0.15);
+
+            transition:
+                all 0.4s ease;
+
+        }
+
+
+        /* Shine */
+
+        .terms-btn::before,
+        .previsit-btn::before,
+        .projects-btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -120%;
+
+            width: 60%;
+
+            height: 100%;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            transform:
+                skewX(-25deg);
+
+            transition:
+                0.8s;
+
+        }
+
+
+        .terms-btn:hover::before,
+        .previsit-btn:hover::before,
+        .projects-btn:hover::before {
+
+            left: 150%;
+
+        }
+
+
+        .terms-btn:hover,
+        .previsit-btn:hover,
+        .projects-btn:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+
+                0 18px 35px
+                rgba(0,0,0,0.45),
+
+                0 8px 20px
+                rgba(0,0,0,0.2);
+
+        }
+
+
+        .arrow {
+
+            display: inline-block;
+
+            margin-left: 10px;
+
+            transition:
+                0.3s ease;
+
+        }
+
+
+        .terms-btn:hover .arrow,
+        .previsit-btn:hover .arrow,
+        .projects-btn:hover .arrow {
+
+            transform:
+                translateX(8px);
+
+        }
+
+
+        /* =========================================
+           PROJECT GALLERY
+        ========================================= */
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(300px, 1fr)
+                );
+
+            gap: 20px;
+
+            margin-top: 40px;
+
+        }
+
+
+        .gallery-item {
+
+            border:
+                2px solid
+                var(--light-grey);
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+            text-align: center;
+
+            background: #ffffff;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .gallery-item:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,0.12);
+
+        }
+
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        .caption {
+
+            padding: 15px;
+
+            font-weight: bold;
+
+            color:
+                var(--primary-orange);
+
+        }
+
+
+        /* =========================================
+           CONTACT FORM
+        ========================================= */
+
+        .contact-form {
+
+            background:
+                var(--primary-orange);
+
+            padding: 40px;
+
+            border-radius: 10px;
+
+            margin-top: 50px;
+
+        }
+
+
+        .contact-form h3 {
+
+            text-align: center;
+
+            color: black;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .contact-form > p {
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .contact-form input,
+        .contact-form textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin: 10px 0;
+
+            border:
+                1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+
+        }
+
+
+        .contact-form textarea {
+
+            resize: vertical;
+
+        }
+
+
+        .contact-form button {
+
+            background:
+                black;
+
+            color: white;
+
+            border: none;
+
+            padding:
+                15px 30px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            width: 100%;
+
+            border-radius: 5px;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .contact-form button:hover {
+
+            background:
+                #222;
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* =========================================
+           NEWS & UPDATES
+        ========================================= */
+
+        .news-section {
+
+            max-width: 1100px;
+
+            margin:
+                60px auto;
+
+            padding:
+                40px 20px;
+
+            background:
+                var(--light-grey);
+
+            border-radius: 12px;
+
+            text-align: center;
+
+        }
+
+
+        .news-section h2 {
+
+            color:
+                var(--primary-orange);
+
+            font-size: 2rem;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .news-section-intro {
+
+            margin-bottom: 30px;
+
+            color:
+                var(--dark-grey);
+
+        }
+
+
+        .news-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .news-card {
+
+            background:
+                white;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            text-align: left;
+
+            box-shadow:
+                0 5px 15px
+                rgba(0,0,0,0.1);
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .news-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,0.15);
+
+        }
+
+
+        .news-card img {
+
+            width: 100%;
+
+            height: 280px;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        .news-content {
+
+            padding: 20px;
+
+        }
+
+
+        .news-content h3 {
+
+            color:
+                var(--primary-orange);
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .news-content p {
+
+            color:
+                var(--dark-grey);
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            background:
+                var(--primary-orange);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            margin-top: 50px;
+
+        }
+
 
         footer p {
-            font-size: 1.05rem;
-            font-weight: 500;
+
+            margin: 5px 0;
+
         }
 
-        footer p strong {
-            letter-spacing: 1px;
-        }
 
-        /* Mobile Layout */
+        /* =========================================
+           TABLET
+        ========================================= */
+
         @media (max-width: 992px) {
-            .main-services-nav {
-                display: none;
+
+            .hero-text h1 {
+
+                font-size:
+                    2.8rem;
+
             }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+
+
+            /*
+              IMPORTANT:
+              DO NOT HIDE .main-services-nav
+              ON MOBILE.
+            */
+
         }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+            /* -----------------------------------------
+               HEADER
+            ----------------------------------------- */
+
+            header {
+
+                min-height:
+                    70vh;
+
+            }
+
+
+            .hero-text {
+
+                padding:
+                    20px 15px;
+
+            }
+
+
+            .hero-text h1 {
+
+                font-size:
+                    2.3rem;
+
+            }
+
+
+            .hero-text p {
+
+                font-size:
+                    1.1rem;
+
+            }
+
+
+            /* -----------------------------------------
+               SOCIAL BUTTONS
+            ----------------------------------------- */
+
+            .social-sidebar {
+
+                display: flex;
+
+                padding:
+                    5px;
+
+            }
+
+
+            .social-sidebar a {
+
+                font-size:
+                    17px;
+
+                margin:
+                    9px 4px;
+
+            }
+
+
+            /* -----------------------------------------
+               HAMBURGER
+            ----------------------------------------- */
+
+            .hamburger {
+
+                top:
+                    18px;
+
+                right:
+                    18px;
+
+                font-size:
+                    28px;
+
+            }
+
+
+            .nav-menu {
+
+                top:
+                    65px;
+
+                right:
+                    15px;
+
+                width:
+                    220px;
+
+            }
+
+
+            /* -----------------------------------------
+               BUTTONS
+            ----------------------------------------- */
+
+            .terms-btn,
+            .previsit-btn,
+            .projects-btn {
+
+                padding:
+                    15px 25px;
+
+                font-size:
+                    15px;
+
+            }
+
+
+            /* -----------------------------------------
+               GALLERY
+            ----------------------------------------- */
+
+            .gallery {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .gallery-item img {
+
+                height:
+                    230px;
+
+            }
+
+
+            /* -----------------------------------------
+               CONTACT
+            ----------------------------------------- */
+
+            .contact-form {
+
+                padding:
+                    25px 20px;
+
+            }
+
+
+            /* -----------------------------------------
+               NEWS
+            ----------------------------------------- */
+
+            .news-section {
+
+                margin:
+                    40px 15px;
+
+                padding:
+                    30px 15px;
+
+            }
+
+
+            .news-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .news-card img {
+
+                height:
+                    230px;
+
+            }
+
+
+            /* -----------------------------------------
+               CONTAINER
+            ----------------------------------------- */
+
+            .container {
+
+                padding:
+                    0 15px;
+
+            }
+
+        }
+
+
+        /* =========================================
+           SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 480px) {
+
+            .hero-text h1 {
+
+                font-size:
+                    2rem;
+
+            }
+
+
+            .hero-text p {
+
+                font-size:
+                    1rem;
+
+            }
+
+
+            .social-sidebar {
+
+                padding:
+                    4px;
+
+            }
+
+
+            .social-sidebar a {
+
+                font-size:
+                    15px;
+
+                margin:
+                    8px 3px;
+
+            }
+
+
+            .terms-btn,
+            .previsit-btn,
+            .projects-btn {
+
+                width:
+                    90%;
+
+                padding:
+                    14px 15px;
+
+                font-size:
+                    14px;
+
+            }
+
+
+            .btn {
+
+                width:
+                    90%;
+
+                margin:
+                    7px auto;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-    <!-- Navigation Header -->
-    <header>
-        <div class="top-navbar">
-            <a href="index.html" class="brand-logo">
-                <i class="fas fa-door-open"></i> SP <span>Interior</span>
+
+    <!-- =========================================
+         SOCIAL MEDIA SIDEBAR
+    ========================================= -->
+
+    <div class="social-sidebar">
+
+        <a href="https://facebook.com"
+           target="_blank"
+           aria-label="Facebook">
+
+            <i class="fab fa-facebook-f"></i>
+
+        </a>
+
+
+        <a href="#"
+           aria-label="TikTok">
+
+            <i class="fab fa-tiktok"></i>
+
+        </a>
+
+
+        <a href="#"
+           aria-label="YouTube">
+
+            <i class="fab fa-youtube"></i>
+
+        </a>
+
+
+        <a href="#"
+           aria-label="Instagram">
+
+            <i class="fab fa-instagram"></i>
+
+        </a>
+
+
+        <a href="#"
+           aria-label="LinkedIn">
+
+            <i class="fab fa-linkedin-in"></i>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================================
+         HERO HEADER
+    ========================================= -->
+
+    <header id="home">
+
+
+        <!-- HAMBURGER -->
+
+        <div class="hamburger"
+             onclick="toggleMenu()"
+             aria-label="Open navigation menu">
+
+            <i class="fas fa-bars"></i>
+
+        </div>
+
+
+        <!-- HAMBURGER NAVIGATION -->
+
+        <div class="nav-menu"
+             id="navMenu">
+
+            <a href="index.html">
+
+                <i class="fas fa-home"></i>
+                Home
+
             </a>
 
-            <!-- Service Links Bar (Non-Hamburger) -->
-            <ul class="main-services-nav">
-                <li><a href="highlight.html" class="active">Doors & Lock Fittings</a></li>
-                <li><a href="carpentry.html">Carpentry</a></li>
-                <li><a href="kitchen.html">Kitchen Cabinet & Wardrobe Fitting</a></li>
-                <li><a href="gypsum.html">Gypsum Ceiling</a></li>
-                <li><a href="woodwork.html">TnG and Woodwork</a></li>
-                <li><a href="stairs.html">Stairs and Spiral Staircase</a></li>
-                <li><a href="effects.html">Wall Effect and Interior Finish</a></li>
-                <li><a href="decor.html">Interior Lighting Decor</a></li>
-            </ul>
 
-            <!-- Hamburger Button -->
-            <div class="hamburger-btn" onclick="toggleMenu()" id="hamburgerBtn">
-                <i class="fas fa-bars"></i>
-            </div>
+            <a href="education.html">
+
+                <i class="fas fa-graduation-cap"></i>
+                Education
+
+            </a>
+
+
+            <a href="experience.html">
+
+                <i class="fas fa-briefcase"></i>
+                Experience
+
+            </a>
+
+
+            <a href="contact.html">
+
+                <i class="fas fa-envelope"></i>
+                Contacts
+
+            </a>
+
         </div>
 
-        <!-- Hamburger Dropdown Menu -->
-        <div class="hamburger-menu" id="hamburgerMenu">
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a>
-            <a href="experience.html"><i class="fas fa-briefcase"></i> Experience</a>
-            <a href="contact.html"><i class="fas fa-envelope"></i> Contacts</a>
+
+        <!-- HERO TEXT -->
+
+        <div class="hero-text">
+
+            <h1>
+                SP INTERIOR
+            </h1>
+
+
+            <p>
+
+                <i>
+                    "Transforming your space to elegance,
+                    comfort and attractive living."
+                </i>
+
+            </p>
+
         </div>
+
     </header>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <h1>Doors & Lock Fittings</h1>
-        <p>Premium modern door installations, security locks, and custom architectural fittings.</p>
+
+
+    <!-- =========================================
+         SERVICES MARQUEE
+    ========================================= -->
+
+    <div class="tech-transition">
+
+        <p>
+
+            <i>
+
+                Carpentry • Woodworking • Modern Roofing •
+                Interior Design • Custom Furniture •
+                Coffee Tables • Dining Tables •
+                Bed Fabrication & Fitting •
+                Kitchen Cabinets •
+                Wardrobe Design & Installation •
+                Door & Lock Fitting •
+                Pallet Flooring • T&G Ceilings •
+                Gypsum Designs •
+                Decorative Patterns & Flowers •
+                PVC Installation •
+                Wall Units •
+                DIY Décor & Repairs •
+                Wallpaper & Wall Effects •
+                Entertainment Unit Design •
+                Event Decorations & Consultation •
+                Partitioning •
+                Wall-to-Wall Carpeting •
+                Backdrop Décor •
+                Marble Table Fabrication •
+                Seat & Furniture Asset Creation
+
+            </i>
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =========================================
+         ABOUT SECTION
+    ========================================= -->
+
+    <div class="container intro-section">
+
+        <h2>
+            About SP Interior
+        </h2>
+
+
+        <hr
+            style="
+                width: 50px;
+                margin: 20px auto;
+                border: 2px solid var(--primary-orange);
+            "
+        >
+
+
+        <p>
+
+            SP Interior, Fittings and Interiors is a
+            dedicated gypsum, interior design and
+            woodwork professional with vast experience
+            and skills in the industry.
+
+            We are ready to help you achieve your dream
+            and transform your space into a comfortable,
+            elegant and attractive environment.
+
+            With a strong background in technical work,
+            SP Interior has successfully delivered
+            expertise to different clients, projects
+            and workshops.
+
+            References are available upon request.
+
+        </p>
+
+
+        <!-- CONTACT BUTTONS -->
+
+        <div class="btn-group">
+
+            <a
+                href="https://wa.me/254705199669"
+                class="btn btn-whatsapp"
+                target="_blank"
+            >
+
+                <i class="fab fa-whatsapp"></i>
+
+                Chat on WhatsApp
+
+            </a>
+
+
+            <a
+                href="mailto:peter029kim@gmail.com"
+                class="btn btn-email"
+            >
+
+                <i class="fas fa-envelope"></i>
+
+                Send Email
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         TERMS & CONDITIONS BUTTON
+    ========================================= -->
+
+    <div class="button-container">
+
+        <a
+            href="terms.html"
+            class="terms-btn"
+        >
+
+            Terms & Conditions
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================================
+         PRE-SITE VISIT BUTTON
+    ========================================= -->
+
+    <div class="button-container">
+
+        <a
+            href="previsit.html"
+            class="previsit-btn"
+        >
+
+            Pre-Site Visit
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================================
+         WORK & PROJECT HIGHLIGHT BUTTON
+    ========================================= -->
+
+    <div class="button-container">
+
+        <a
+            href="#projects"
+            class="projects-btn"
+        >
+
+            Work & Project Highlight
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================================
+         PROJECT GALLERY
+    ========================================= -->
+
+    <div
+        class="container"
+        id="projects"
+    >
+
+        <h2
+            style="
+                text-align:center;
+                margin-bottom:20px;
+            "
+        >
+
+            Work & Project Highlight
+
+        </h2>
+
+
+        <div class="gallery">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="p1.jpeg"
+                    alt="Client project in progress"
+                >
+
+                <div class="caption">
+
+                    Client Project in Progress
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="p2.jpeg"
+                    alt="Client project in progress"
+                >
+
+                <div class="caption">
+
+                    Client Project in Progress
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="p3.jpeg"
+                    alt="Client project in progress"
+                >
+
+                <div class="caption">
+
+                    Client Project in Progress
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="p4.jpeg"
+                    alt="Gypsum ceiling"
+                >
+
+                <div class="caption">
+
+                    Gypsum Ceiling
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 5 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="p5.jpeg"
+                    alt="Client project"
+                >
+
+                <div class="caption">
+
+                    Client Project in Progress
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 6 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="h2.jpeg"
+                    alt="Completed project"
+                >
+
+                <div class="caption">
+
+                    Completed Project
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 7 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="h4.jpeg"
+                    alt="Double decker bed"
+                >
+
+                <div class="caption">
+
+                    Completed Double Decker Bed
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 8 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="h5.jpeg"
+                    alt="TV unit mounted on wall"
+                >
+
+                <div class="caption">
+
+                    TV Unit Mounted on Wall
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 9 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="h1.jpeg"
+                    alt="Completed gypsum ceiling"
+                >
+
+                <div class="caption">
+
+                    Completed Gypsum Ceiling
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 10 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="h6.jpeg"
+                    alt="Barber shop setup"
+                >
+
+                <div class="caption">
+
+                    Complete Barber Shop Setup
+                    and Furnishing
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 11 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="h7.jpeg"
+                    alt="Elegant wall light"
+                >
+
+                <div class="caption">
+
+                    Elegant Wall Light
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         CONTACT FORM
+    ========================================= -->
+
+    <div
+        class="container"
+        id="contact"
+    >
+
+        <div class="contact-form">
+
+
+            <h3>
+
+                Client Direct Message
+
+            </h3>
+
+
+            <p>
+
+                Clients can send a direct message
+                by filling in the form below
+                and describing their project.
+
+            </p>
+
+
+            <form
+                action="https://formspree.io/f/xlgqbyjd"
+                method="POST"
+            >
+
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Client Name"
+                    required
+                >
+
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Official Email"
+                    required
+                >
+
+
+                <textarea
+                    name="message"
+                    rows="5"
+                    placeholder="Project description..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                >
+
+                    Send Message
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         NEWS & UPDATES
+    ========================================= -->
+
+    <section class="news-section">
+
+
+        <h2>
+
+            News & Updates
+
+        </h2>
+
+
+        <p class="news-section-intro">
+
+            Stay updated with our latest projects,
+            completed installations, new designs,
+            promotions and interior developments.
+
+        </p>
+
+
+        <div class="news-grid">
+
+
+            <!-- NEWS ITEM 1 -->
+
+            <div class="news-card">
+
+
+                <img
+                    src="news1.jpeg"
+                    alt="Latest SP Interior project"
+                >
+
+
+                <div class="news-content">
+
+
+                    <h3>
+
+                        Latest Project Update
+
+                    </h3>
+
+
+                    <p>
+
+                        Add information here about
+                        your latest completed project,
+                        new installation or current work.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NEWS ITEM 2 -->
+
+            <div class="news-card">
+
+
+                <img
+                    src="news2.jpeg"
+                    alt="SP Interior news update"
+                >
+
+
+                <div class="news-content">
+
+
+                    <h3>
+
+                        Upcoming News & Events
+
+                    </h3>
+
+
+                    <p>
+
+                        Add your latest announcements,
+                        promotions, upcoming projects
+                        or important updates here.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <!-- Gallery Section (dl1.jpeg to dl20.jpeg) -->
-    <main class="container">
-        <div class="section-header">
-            <h2 class="section-title">Featured <span>Designs</span></h2>
-            <div class="divider"></div>
-        </div>
 
-        <div class="gallery-grid">
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d1.jpeg" alt="Door & Lock Installation 1"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #1</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d2.jpeg" alt="Door & Lock Installation 2"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #2</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d3.jpeg" alt="Door & Lock Installation 3"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #3</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d4.jpeg" alt="Door & Lock Installation 4"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #4</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d5.jpeg" alt="Door & Lock Installation 5"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #5</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d6.jpeg" alt="Door & Lock Installation 6"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #6</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d7.jpeg" alt="Door & Lock Installation 7"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #7</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d8.jpeg" alt="Door & Lock Installation 8"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #8</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d9.jpeg" alt="Door & Lock Installation 9"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #9</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d10.jpeg" alt="Door & Lock Installation 10"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #10</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d11.jpeg" alt="Door & Lock Installation 11"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #11</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d12.jpeg" alt="Door & Lock Installation 12"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #12</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d13.jpeg" alt="Door & Lock Installation 13"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #13</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d14.jpeg" alt="Door & Lock Installation 14"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #14</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d15.jpeg" alt="Door & Lock Installation 15"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #15</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d16.jpeg" alt="Door & Lock Installation 16"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #16</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d17.jpeg" alt="Door & Lock Installation 17"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #17</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d18.jpeg" alt="Door & Lock Installation 18"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #18</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d19.jpeg" alt="Door & Lock Installation 19"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #19</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img-wrapper"><img src="d20.jpeg" alt="Door & Lock Installation 20"></div>
-                <div class="card-body">
-                    <div class="card-title">Fitting Design #20</div>
-                    <div class="card-subtitle">Custom Door & Lock</div>
-                </div>
-            </div>
-        </div>
-    </main>
 
-    <!-- Footer -->
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
     <footer>
-        <p><strong>SP INTERIOR</strong> | Transforming your space with elegance and durability.</p>
-        <p>&copy; 2026 All Rights Reserved.</p>
+
+        <p>
+
+            <strong>
+                SP INTERIOR
+            </strong>
+
+            |
+
+            Transforming your space to elegance,
+            comfort and attractiveness.
+
+        </p>
+
+
+        <p>
+
+            &copy; 2026 All Rights Reserved.
+
+        </p>
+
     </footer>
 
-    <!-- JavaScript Navigation -->
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
     <script>
+
+        /* Open / close hamburger menu */
+
         function toggleMenu() {
-            const menu = document.getElementById("hamburgerMenu");
+
+            const menu =
+                document.getElementById("navMenu");
+
             menu.classList.toggle("show");
+
         }
 
+
+        /* Close hamburger when clicking outside */
+
         window.onclick = function(event) {
-            if (!event.target.closest('#hamburgerBtn') && !event.target.closest('#hamburgerMenu')) {
-                const menu = document.getElementById("hamburgerMenu");
-                if (menu.classList.contains("show")) {
-                    menu.classList.remove("show");
-                }
+
+            const menu =
+                document.getElementById("navMenu");
+
+            const hamburger =
+                document.querySelector(".hamburger");
+
+
+            if (
+
+                menu &&
+                !event.target.closest(".hamburger") &&
+                !event.target.closest(".nav-menu")
+
+            ) {
+
+                menu.classList.remove("show");
+
             }
+
         };
+
     </script>
+
+
 </body>
+
 </html>
+```
