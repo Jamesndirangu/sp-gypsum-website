@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doors & Lock Fittings </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --orange-primary: #ff5500;
+            --orange-gradient: linear-gradient(135deg, #ff6b00 0%, #ff3b00 100%);
+            --orange-light: #fff3ec;
+            --orange-subtle: #ffe6d5;
+            --white: #ffffff;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --card-shadow: 0 10px 30px rgba(255, 85, 0, 0.08);
+            --card-hover-shadow: 0 15px 35px rgba(255, 85, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--orange-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Header Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 20px rgba(255, 85, 0, 0.1);
+            border-bottom: 2px solid var(--orange-primary);
+        }
+
+        .top-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .brand-logo {
+            color: var(--orange-primary);
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo span {
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .main-services-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .main-services-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: var(--white);
+            border: 1px solid var(--orange-subtle);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .main-services-nav a:hover,
+        .main-services-nav a.active {
+            background: var(--orange-gradient);
+            color: var(--white);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 85, 0, 0.3);
+        }
+
+        /* Hamburger Drawer Navigation */
+        .hamburger-btn {
+            font-size: 24px;
+            color: var(--orange-primary);
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: var(--orange-light);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-btn:hover {
+            background: var(--orange-primary);
+            color: var(--white);
+        }
+
+        .hamburger-menu {
+            display: none;
+            position: fixed;
+            top: 75px;
+            right: 25px;
+            width: 250px;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--orange-subtle);
+            z-index: 1000;
+        }
+
+        .hamburger-menu.show {
+            display: block;
+            animation: slideDown 0.3s ease-out forwards;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hamburger-menu a {
+            display: block;
+            padding: 16px 24px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--orange-light);
+            transition: all 0.2s ease;
+        }
+
+        .hamburger-menu a:hover {
+            background: var(--orange-gradient);
+            color: var(--white);
+            padding-left: 30px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: var(--orange-gradient);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--orange-light);
+            transform: skewY(-2deg);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 900;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* Gallery Grid */
+        .container {
+            max-width: 1300px;
+            margin: 40px auto 80px auto;
+            padding: 0 25px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title span {
+            color: var(--orange-primary);
+        }
+
+        .divider {
+            width: 80px;
+            height: 5px;
+            background: var(--orange-gradient);
+            margin: 15px auto 0 auto;
+            border-radius: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--orange-subtle);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--orange-primary);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.08);
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+            background: var(--white);
+            border-top: 2px solid var(--orange-light);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--orange-primary);
+            margin-bottom: 5px;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--orange-gradient);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 -10px 30px rgba(255, 85, 0, 0.15);
+        }
+
+        footer p {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        footer p strong {
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 992px) {
+            .main-services-nav {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="top-navbar">
+            <a href="index.html" class="brand-logo">
+                <i class="fas fa-door-open"></i> SP <span>Interior</span>
+            </a>
+
+            <!-- Service Links Bar (Non-Hamburger) -->
+            <ul class="main-services-nav">
+                <li><a href="highlight.html" class="active">Doors & Lock Fittings</a></li>
+                <li><a href="carpentry.html">Carpentry</a></li>
+                <li><a href="kitchen.html">Kitchen Cabinet & Wardrobe Fitting</a></li>
+                <li><a href="gypsum.html">Gypsum Ceiling</a></li>
+                <li><a href="woodwork.html">TnG and Woodwork</a></li>
+                <li><a href="stairs.html">Stairs and Spiral Staircase</a></li>
+                <li><a href="effects.html">Wall Effect and Interior Finish</a></li>
+                <li><a href="decor.html">Interior Lighting Decor</a></li>
+            </ul>
+
+            <!-- Hamburger Button -->
+            <div class="hamburger-btn" onclick="toggleMenu()" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+        <!-- Hamburger Dropdown Menu -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="experience.html"><i class="fas fa-briefcase"></i> Experience</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contacts</a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>Doors & Lock Fittings</h1>
+        <p>Premium modern door installations, security locks, and custom architectural fittings.</p>
+    </section>
+
+    <!-- Gallery Section (dl1.jpeg to dl20.jpeg) -->
+    <main class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured <span>Designs</span></h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d1.jpeg" alt="Door & Lock Installation 1"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #1</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d2.jpeg" alt="Door & Lock Installation 2"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #2</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d3.jpeg" alt="Door & Lock Installation 3"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #3</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d4.jpeg" alt="Door & Lock Installation 4"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #4</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d5.jpeg" alt="Door & Lock Installation 5"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #5</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d6.jpeg" alt="Door & Lock Installation 6"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #6</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d7.jpeg" alt="Door & Lock Installation 7"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #7</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d8.jpeg" alt="Door & Lock Installation 8"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #8</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d9.jpeg" alt="Door & Lock Installation 9"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #9</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d10.jpeg" alt="Door & Lock Installation 10"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #10</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d11.jpeg" alt="Door & Lock Installation 11"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #11</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d12.jpeg" alt="Door & Lock Installation 12"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #12</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d13.jpeg" alt="Door & Lock Installation 13"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #13</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d14.jpeg" alt="Door & Lock Installation 14"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #14</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d15.jpeg" alt="Door & Lock Installation 15"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #15</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d16.jpeg" alt="Door & Lock Installation 16"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #16</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d17.jpeg" alt="Door & Lock Installation 17"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #17</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d18.jpeg" alt="Door & Lock Installation 18"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #18</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d19.jpeg" alt="Door & Lock Installation 19"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #19</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="d20.jpeg" alt="Door & Lock Installation 20"></div>
+                <div class="card-body">
+                    <div class="card-title">Fitting Design #20</div>
+                    <div class="card-subtitle">Custom Door & Lock</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>SP INTERIOR</strong> | Transforming your space with elegance and durability.</p>
+        <p>&copy; 2026 All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Navigation -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("hamburgerMenu");
+            menu.classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('#hamburgerBtn') && !event.target.closest('#hamburgerMenu')) {
+                const menu = document.getElementById("hamburgerMenu");
+                if (menu.classList.contains("show")) {
+                    menu.classList.remove("show");
+                }
+            }
+        };
+    </script>
+</body>
+</html>
